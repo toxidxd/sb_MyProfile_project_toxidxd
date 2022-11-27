@@ -3,15 +3,15 @@
 SEPARATOR = '------------------------------------------'
 
 # user profile
-n = ''
-a = 0
-ph = ''
-e = ''
+name = ''
+age = 0
+phone = ''
+email = ''
 i = ''
 # social links
-v = ''
-t = ''
-tk = ''
+vk = ''
+twitter = ''
+tiktok = ''
 
 
 def general_info_user(n_parameter, a_parameter, ph_parameter, e_parameter, i_parameter):
@@ -47,7 +47,7 @@ while True:
     if option == 0:
             break
 
-    if option == 1:
+    elif option == 1:
         # submenu 1: edit info
         while True:
             print(SEPARATOR)
@@ -59,13 +59,14 @@ while True:
             option2 = int(input('Введите номер пункта меню: '))
             if option2 == 0:
                 break
-            if option2 == 1:
+            
+            elif option2 == 1:
                 # input general info
-                n = input('Введите имя: ')
+                name = input('Введите имя: ')
                 while 1:
                         # validate user age
-                        a = int(input('Введите возраст: '))
-                        if a > 0:
+                        age = int(input('Введите возраст: '))
+                        if age > 0:
                             break
                         print('Возраст должен быть положительным')
 
@@ -85,6 +86,7 @@ while True:
                 t = input('Введите логин Telegram: ')
                 tk = input('Введите логин Tiktok: ')
             else: print('Введите корректный пункт меню')
+
     elif option == 2:
         # submenu 2: print info
         while True:
@@ -97,11 +99,12 @@ while True:
             option2 = int(input('Введите номер пункта меню: '))
             if option2 == 0:
                 break
-            if option2 == 1:
-                general_info_user(n, a, ph, e, i)
+            
+            elif option2 == 1:
+                general_info_user(name, age, ph, e, i)
 
             elif option2 == 2:
-                general_info_user(n, a, ph, e, i)
+                general_info_user(name, age, ph, e, i)
 
                 # print social links
                 print('')
@@ -110,4 +113,5 @@ while True:
                 print('Telegram: ', t)
                 print('Tiktok:   ', tk)
             else:   print('Введите корректный пункт меню')
+
     else:       print('Введите корректный пункт меню')
