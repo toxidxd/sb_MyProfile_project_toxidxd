@@ -1,4 +1,5 @@
 # MyProfile app
+# TODO refactor prints with format
 
 SEPARATOR = '------------------------------------------'
 
@@ -16,6 +17,9 @@ payment_account = 0
 bank_name = ''
 bik = 0
 correspondent_account = 0
+# address info
+address = ''
+post_index = ''
 
 
 def general_info_user(name_parameter, age_parameter, phone_parameter, email_parameter, info_parameter):
@@ -50,6 +54,10 @@ def bank_user_info(payment_account_parameter, bank_name_parameter, bik_parameter
     print("БИК: {0}".format(bik_parameter))
     print("Корреспондентский счет: {0}".format(correspondent_account_parameter))
     print()
+
+
+def address_user_info():
+    pass
 
 
 print('Приложение MyProfile')
@@ -123,6 +131,9 @@ while True:
                 bank_name = input('Введите название банка: ')
                 bik = input('Введите БИК: ')
                 correspondent_account = input('Введите корреспондентский счет')
+
+            # TODO elif for input address info
+
             else:
                 print('Введите корректный пункт меню')
 
@@ -146,6 +157,7 @@ while True:
                 general_info_user(name, age, phone, email, info)
                 taxes_user_info(ogrnip, inn)
                 bank_user_info(payment_account, bank_name, bik, correspondent_account)
+                # TODO address print
             else:
                 print('Введите корректный пункт меню')
 
