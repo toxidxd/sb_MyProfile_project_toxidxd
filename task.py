@@ -102,7 +102,13 @@ while True:
 
             elif option2 == 2:
                 # input taxes info
-                ogrnip = input('Введите ОГРНИП: ')
+                while True:
+                    ogrnip = input('Введите ОГРНИП: ')
+                    if len(ogrnip) == 15:
+                        break
+                    else:
+                        print('Проверьте ввод. Ожидалось 15 знаков, вместо {0}.'.format(len(ogrnip)))
+
                 inn = input('Введите ИНН: ')
 
             elif option2 == 3:
