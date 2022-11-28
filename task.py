@@ -113,10 +113,16 @@ while True:
 
             elif option2 == 3:
                 # input bank info
-                payment_account = int(input('Введите расчетный счет: '))
+                while True:
+                    payment_account = input('Введите расчетный счет: ')
+                    if len(payment_account) == 20:
+                        break
+                    else:
+                        print('Проверьте ввод. Ожидалось 20 знаков, вместо {0}.'.format(len(payment_account)))
+
                 bank_name = input('Введите название банка: ')
-                bik = int(input('Введите БИК: '))
-                correspondent_account = int(input('Введите корреспондентский счет'))
+                bik = input('Введите БИК: ')
+                correspondent_account = input('Введите корреспондентский счет')
             else:
                 print('Введите корректный пункт меню')
 
