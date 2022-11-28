@@ -35,18 +35,21 @@ def general_info_user(name_parameter, age_parameter, phone_parameter, email_para
     print('E-mail: ', email_parameter)
     if info:
         print('Дополнительная информация: \n{0}'.format(info_parameter))
+    print()
 
 
-def taxes_user_info(ogrnip_parametr, inn_parametr):
-    print("ОГРНИП: {0}".format(ogrnip_parametr))
-    print("ИНН: {0}".format(inn_parametr))
+def taxes_user_info(ogrnip_parameter, inn_parameter):
+    print("ОГРНИП: {0}".format(ogrnip_parameter))
+    print("ИНН: {0}".format(inn_parameter))
+    print()
 
 
-def bank_user_info(payment_account_parametr, bank_name_parametr, bik_parametr, correspondent_account_parametr):
-    print("Расчетный счет: {0}".format(payment_account))
-    print("Название банка: {0}".format(bank_name_parametr))
-    print("БИК: {0}".format(bik_parametr))
-    print("Корреспондентский счет: {0}".format(correspondent_account_parametr))
+def bank_user_info(payment_account_parameter, bank_name_parameter, bik_parameter, correspondent_account_parameter):
+    print("Расчетный счет: {0}".format(payment_account_parameter))
+    print("Название банка: {0}".format(bank_name_parameter))
+    print("БИК: {0}".format(bik_parameter))
+    print("Корреспондентский счет: {0}".format(correspondent_account_parameter))
+    print()
 
 
 print('Приложение MyProfile')
