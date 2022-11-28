@@ -8,10 +8,14 @@ age = 0
 phone = ''
 email = ''
 info = ''
-# social links
-vk = ''
-telegram = ''
-tiktok = ''
+# taxes info
+ogrnip = 0
+inn = 0
+# bank info
+payment_account = 0
+bank_name = ''
+bik = 0
+correspondent_account = 0
 
 
 def general_info_user(name_parameter, age_parameter, phone_parameter, email_parameter, info_parameter):
@@ -30,9 +34,19 @@ def general_info_user(name_parameter, age_parameter, phone_parameter, email_para
     print('Телефон:', phone_parameter)
     print('E-mail: ', email_parameter)
     if info:
-        print('')
-        print('Дополнительная информация:')
-        print(info_parameter)
+        print('Дополнительная информация: \n{0}'.format(info_parameter))
+
+
+def taxes_user_info(ogrnip_parametr, inn_parametr):
+    print("ОГРНИП: {0}".format(ogrnip_parametr))
+    print("ИНН: {0}".format(inn_parametr))
+
+
+def bank_user_info(payment_account_parametr, bank_name_parametr, bik_parametr, correspondent_account_parametr):
+    print("Расчетный счет: {0}".format(payment_account))
+    print("Название банка: {0}".format(bank_name_parametr))
+    print("БИК: {0}".format(bik_parametr))
+    print("Корреспондентский счет: {0}".format(correspondent_account_parametr))
 
 
 print('Приложение MyProfile')
@@ -56,7 +70,8 @@ while True:
             print(SEPARATOR)
             print('ВВЕСТИ ИЛИ ОБНОВИТЬ ИНФОРМАЦИЮ')
             print('1 - Общая информация')
-            print('2 - Социальные сети и мессенджеры')
+            print('2 - Налоговая информация')
+            print('3 - Банковские реквизиты')
             print('0 - Назад')
 
             option2 = int(input('Введите номер пункта меню: '))
@@ -73,9 +88,9 @@ while True:
                         break
                     print('Возраст должен быть положительным')
 
-                uph = input('Введите номер телефона (+7ХХХХХХХХХХ): ')
+                user_phone = input('Введите номер телефона (+7ХХХХХХХХХХ): ')
                 phone = ''
-                for ch in uph:
+                for ch in user_phone:
                     if ch == '+' or ('0' <= ch <= '9'):
                         phone += ch
 
@@ -83,10 +98,16 @@ while True:
                 info = input('Введите дополнительную информацию:\n')
 
             elif option2 == 2:
-                # input social links
-                vk = input('Введите адрес профиля Вконтакте: ')
-                telegram = input('Введите логин Telegram: ')
-                tiktok = input('Введите логин Tiktok: ')
+                # input taxes info
+                ogrnip = input('Введите ОГРНИП: ')
+                inn = input('Введите ИНН: ')
+
+            elif option2 == 3:
+                # input bank info
+                payment_account = int(input('Введите расчетный счет: '))
+                bank_name = input('Введите название банка: ')
+                bik = int(input('Введите БИК: '))
+                correspondent_account = int(input('Введите корреспондентский счет'))
             else:
                 print('Введите корректный пункт меню')
 
@@ -108,13 +129,8 @@ while True:
 
             elif option2 == 2:
                 general_info_user(name, age, phone, email, info)
-
-                # print social links
-                print('')
-                print('Социальные сети и мессенджеры')
-                print('Вконтакте:', vk)
-                print('Telegram: ', telegram)
-                print('Tiktok:   ', tiktok)
+                taxes_user_info(ogrnip, inn)
+                bank_user_info(payment_account, bank_name, bik, correspondent_account)
             else:
                 print('Введите корректный пункт меню')
 
