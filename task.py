@@ -17,14 +17,14 @@ payment_account = 0
 bank_name = ''
 bik = 0
 correspondent_account = 0
-# address info
-address = ''
+# post_address info
+post_address = ''
 post_index = ''
 
 
 def general_info_user(name_parameter, age_parameter, phone_parameter, email_parameter, info_parameter):
     print(SEPARATOR)
-    print('Имя:    ', name_parameter)
+    print('Имя:    {0}'.format(name_parameter))
     if 11 <= age_parameter % 100 <= 19:
         years_parameter = 'лет'
     elif age_parameter % 10 == 1:
@@ -34,21 +34,21 @@ def general_info_user(name_parameter, age_parameter, phone_parameter, email_para
     else:
         years_parameter = 'лет'
 
-    print('Возраст:', age_parameter, years_parameter)
-    print('Телефон:', phone_parameter)
-    print('E-mail: ', email_parameter)
+    print('Возраст: {0} {1}'.format(age_parameter, years_parameter))
+    print('Телефон: {0}'.format(phone_parameter))
+    print('E-mail: {0}'.format(email_parameter))
     if info:
         print('Дополнительная информация: \n{0}'.format(info_parameter))
     print()
 
 
-def taxes_user_info(ogrnip_parameter, inn_parameter):
+def taxes_info(ogrnip_parameter, inn_parameter):
     print("ОГРНИП: {0}".format(ogrnip_parameter))
     print("ИНН: {0}".format(inn_parameter))
     print()
 
 
-def bank_user_info(payment_account_parameter, bank_name_parameter, bik_parameter, correspondent_account_parameter):
+def bank_info(payment_account_parameter, bank_name_parameter, bik_parameter, correspondent_account_parameter):
     print("Расчетный счет: {0}".format(payment_account_parameter))
     print("Название банка: {0}".format(bank_name_parameter))
     print("БИК: {0}".format(bik_parameter))
@@ -56,8 +56,9 @@ def bank_user_info(payment_account_parameter, bank_name_parameter, bik_parameter
     print()
 
 
-def address_user_info():
-    pass
+def post_address_info(post_address, post_index):
+    print('Почтовый адрес: {0}'.format(post_address))
+    print('Почтовый индекс: {0}'.format(post_index))
 
 
 print('Приложение MyProfile')
@@ -83,6 +84,7 @@ while True:
             print('1 - Общая информация')
             print('2 - Налоговая информация')
             print('3 - Банковские реквизиты')
+            print('4 - Почтовый адрес')
             print('0 - Назад')
 
             option2 = int(input('Введите номер пункта меню: '))
@@ -130,9 +132,15 @@ while True:
 
                 bank_name = input('Введите название банка: ')
                 bik = input('Введите БИК: ')
-                correspondent_account = input('Введите корреспондентский счет')
+                correspondent_account = input('Введите корреспондентский счет: ')
 
-            # TODO elif for input address info
+            elif option2 == 4:
+                # input post post_address info
+                post_address = input('Введите почтовый адрес: ')
+                temp_index = input('Введите почтовый индекс: ')
+                for ch in temp_index:
+                    if '0' <= ch <= '9':
+                        post_index += ch
 
             else:
                 print('Введите корректный пункт меню')
@@ -155,9 +163,9 @@ while True:
 
             elif option2 == 2:
                 general_info_user(name, age, phone, email, info)
-                taxes_user_info(ogrnip, inn)
-                bank_user_info(payment_account, bank_name, bik, correspondent_account)
-                # TODO address print
+                taxes_info(ogrnip, inn)
+                bank_info(payment_account, bank_name, bik, correspondent_account)
+                post_address_info(post_address, post_index)
             else:
                 print('Введите корректный пункт меню')
 
