@@ -1,5 +1,4 @@
 # MyProfile app
-# TODO refactor prints with format
 
 SEPARATOR = '------------------------------------------'
 
